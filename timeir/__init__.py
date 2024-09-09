@@ -1,10 +1,10 @@
 __version__ = '0.0.1.dev0'
-from functools import cache as _cache
 from datetime import (
+    UTC as _UTC,
     datetime as _datetime,
     timedelta as _timedelta,
-    UTC as _UTC,
 )
+from functools import cache as _cache
 
 
 def get_year_data(sh_year: int, expire_days=30 * 3) -> dict:
@@ -13,8 +13,9 @@ def get_year_data(sh_year: int, expire_days=30 * 3) -> dict:
     The retrieved data will be cached and on reused on subsequent calls if
     it is not older than expire_days (defaults to 90 days).
     """
+    from json import dumps, loads
     from pathlib import Path
-    from json import loads, dumps
+
     from httpx import get
 
     path = Path(__file__)
