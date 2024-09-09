@@ -54,7 +54,6 @@ def get_year_data(sh_year: int, expire_days=30 * 3) -> dict:
         f.write(
             dumps(
                 j,
-                sort_keys=True,
                 ensure_ascii=False,
                 check_circular=False,
                 indent='\t',
