@@ -19,7 +19,7 @@ def get_year_data(sh_year: int, expire_days=30 * 3) -> dict:
     from httpx import get
 
     path = Path(__file__)
-    file = path.parent / 'cache' / f'~{sh_year}.json'
+    file = path.parent / f'~{sh_year}.json'
 
     try:
         with file.open() as f:
