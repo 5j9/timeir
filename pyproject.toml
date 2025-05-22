@@ -40,3 +40,8 @@ reportUnnecessaryCast = "warning"
 reportUnnecessaryContains = "warning"
 reportUnnecessaryIsInstance = "warning"
 reportUnnecessaryTypeIgnoreComment = true
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
