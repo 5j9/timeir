@@ -1,4 +1,4 @@
-__version__ = '0.0.3'
+__version__ = '0.0.4.dev0'
 from datetime import (
     UTC as _UTC,
     datetime as _datetime,
