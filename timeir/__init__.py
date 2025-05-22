@@ -22,8 +22,7 @@ def get_year_data(sh_year: int, expire_days=30 * 3) -> dict:
     file = path.parent / f'~{sh_year}.json'
 
     try:
-        with file.open() as f:
-            data = f.read()
+        data = file.read_bytes().decode()
     except FileNotFoundError:
         j = None
     else:
@@ -50,15 +49,14 @@ def get_year_data(sh_year: int, expire_days=30 * 3) -> dict:
             return j
         raise
 
-    with file.open('w') as f:
-        f.write(
-            dumps(
-                j,
-                ensure_ascii=False,
-                check_circular=False,
-                indent='\t',
-            )
-        )
+    file.write_bytes(
+        dumps(
+            j,
+            ensure_ascii=False,
+            check_circular=False,
+            indent='\t',
+        ).encode()
+    )
     return j
 
 
